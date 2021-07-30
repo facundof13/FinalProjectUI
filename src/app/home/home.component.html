@@ -5,8 +5,9 @@
         </h3>
     </div>
 </div>
-<div class="row">
-    <div *ngFor="let room of rooms" class="col-4 server-box d-flex flex-column" [routerLink]="['/room',room.id]">
+<div class="row m-0 p-0">
+    <div *ngFor="let room of rooms" class="col-md-4 col-sm-12 server-box d-flex flex-column"
+        [routerLink]="['/room',room.id]">
         <h4>{{room.name}}</h4>
         <span class="mt-2" *ngIf="room.created_date">Created on <span
                 class="font-weight-bold">{{room.created_date}}</span></span>

@@ -20,7 +20,7 @@ export class AppComponent {
 
   async createRoom() {
     const roomId = await this.dialog.open(CreateRoomComponent, {
-      width: '33%',
+      width: '300px',
       autoFocus: true,
     })
       .afterClosed()

@@ -6,8 +6,14 @@
   font-size: 18px;
 }
 
+@media (max-width: 991px) {
+  .chat-box {
+    height: 180px;
+  }
+}
+
 .font-weight-bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .message-time {

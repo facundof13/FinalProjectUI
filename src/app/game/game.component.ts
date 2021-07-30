@@ -241,7 +241,7 @@ export class GameComponent implements OnInit {
     }
 
     this.dialog.open(WinComponent, {
-      width: '33%',
+      width: '300px',
       data: {
         winId: this.winner,
         socketId: this.socketId,

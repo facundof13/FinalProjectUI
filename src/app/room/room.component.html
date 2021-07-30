@@ -6,13 +6,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4 col-s-12">
+    <div class="col-lg-4 col-s-12">
         <app-game [roomId]="roomId" [isTurn]="isCurrentTurn" (socketEmitter)="socketEmitter($event)"
             [socketId]="socketId" [boardObj]="boardObj" [isLoading]="isLoading"></app-game>
     </div>
-    <div class="col-md-8 col-s-12 border">
+    <div class="col-lg-8 col-s-12 border calculated-height">
         <app-chat [roomId]="roomId" [messages]="messages" (messageSent)="messageSent($event)" [typingIds]="typingIds"
-        [chosenName]="chosenName">
+            [chosenName]="chosenName">
         </app-chat>
     </div>
 </div>

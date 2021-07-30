@@ -59,7 +59,7 @@ export class RoomComponent implements OnInit, OnDestroy {
       const name = await this.dialog.open(NamePromptComponent, {
         disableClose: true,
         autoFocus: false,
-        width: '25%',
+        width: '300px',
       })
         .afterClosed()
         .toPromise<any>();

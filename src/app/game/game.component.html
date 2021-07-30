@@ -1,4 +1,4 @@
-<div class="h-100 d-flex flex-column">
+<div class="h-100 d-flex flex-column flex-wrap">
     <div class="board" *ngFor="let row of board; let rowNum = index;">
         <div class="cell" *ngFor="let cell of row; let columnNum = index;" (click)="dropPiece(rowNum, columnNum)">
             <div class="piece x-piece" *ngIf="cell.value > 0">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="row flex-grow-1">
+    <div class="row flex-grow-1 mb-2">
         <div class="col-12 d-flex flex-column justify-content-end align-items-center">
             <div>
                 <button *ngIf="canPlay && !spectator && !winner" type="button" class="btn btn-primary"

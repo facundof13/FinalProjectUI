@@ -3,6 +3,9 @@
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
 body {
   margin: 0;
@@ -10,4 +13,9 @@ body {
 }
 .font-weight-bold {
   font-weight: bold;
+}
+.fit-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  // width: 100%;
 }
