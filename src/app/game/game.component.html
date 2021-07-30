@@ -1,0 +1,54 @@
+<div class="h-100 d-flex flex-column">
+    <div class="board" *ngFor="let row of board; let rowNum = index;">
+        <div class="cell" *ngFor="let cell of row; let columnNum = index;" (click)="dropPiece(rowNum, columnNum)">
+            <div class="piece x-piece" *ngIf="cell.value > 0">
+                +
+            </div>
+            <div class="piece o-piece" *ngIf="cell.value < 0">
+                o
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="isSpectator">
+        <div class="col-12">
+            <h3 class="text-center">You are a spectator.</h3>
+        </div>
+    </div>
+    <div class="row my-2" *ngIf="!winner">
+        <div class="col-12">
+            <h3 class="text-center" *ngIf="canPlay">It is your turn!</h3>
+            <h3 class="text-center" *ngIf="!canPlay && !isSpectator">Please wait your turn.</h3>
+        </div>
+    </div>
+
+    <div class="row my-2"
+        *ngIf="winner && (isSecondPlayer && boardObj.host_rematch) || (isHost && boardObj.second_player_rematch)">
+        <div class="col-12 d-flex flex-row justify-content-center">
+            Your opponent is looking for a rematch!
+        </div>
+    </div>
+    <div class="row my-2" *ngIf="winner && isSecondPlayer">
+        <div class="col-12 d-flex flex-row justify-content-center">
+            <button *ngIf="!boardObj.second_player_rematch" type="button" class="btn btn-secondary"
+                (click)="rematch('second_player_rematch', true)">Rematch?</button>
+            <span *ngIf="boardObj.second_player_rematch">Sent a rematch request!</span>
+        </div>
+    </div>
+    <div class="row my-2" *ngIf="winner && isHost">
+        <div class="col-12 d-flex flex-row justify-content-center">
+            <button *ngIf="!boardObj.host_rematch" type="button" class="btn btn-secondary"
+                (click)="rematch('host_rematch', true)">Rematch?</button>
+            <span *ngIf="boardObj.host_rematch">Sent a rematch request!</span>
+        </div>
+    </div>
+
+    <div class="row flex-grow-1">
+        <div class="col-12 d-flex flex-column justify-content-end align-items-center">
+            <div>
+                <button *ngIf="canPlay && !spectator && !winner" type="button" class="btn btn-primary"
+                    (click)="submitMove()">Submit move</button>
+            </div>
+        </div>
+    </div>
+</div>

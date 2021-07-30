@@ -1,0 +1,31 @@
+.board {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cell {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+
+  cursor: pointer;
+}
+
+.piece {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  font-size: 100px;
+
+  &.x-piece {
+    transform: rotate(45deg);
+    color: red;
+  }
+
+  &.o-piece {
+    color: blue;
+  }
+}

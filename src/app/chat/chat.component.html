@@ -1,0 +1,33 @@
+<div class="chat-box d-flex flex-column" #scroll>
+    <div *ngFor="let message of messages" class="message">
+        <div *ngIf="!message.system_user">
+            <span class="font-weight-bold">{{message.name}}: </span>{{message.message}}
+        </div>
+        <div *ngIf="message.system_user">
+            <span class="font-weight-bold">{{message.message}}</span>
+        </div>
+        <div class="message-time">{{message.time}}</div>
+    </div>
+
+
+    <div *ngIf="typingIds?.length > 0" class="flex-grow-1 d-flex flex-column justify-content-end">
+        <div *ngFor="let id of typingIds">
+            <h6>
+                {{id}} is typing...
+            </h6>
+        </div>
+    </div>
+</div>
+<hr>
+<form [formGroup]="form" *ngIf="form" (ngSubmit)="sendMessage()">
+    <div class="row">
+        <div class="col-12 d-flex flex-row flex-nowrap align-items-center">
+            <span class="m-2">{{chosenName}}:</span>
+            <div class="flex-grow-1 m-2">
+                <input name="message" (keyup)="checkTyping()" type="text" formControlName="message" class="form-control"
+                    id="message" placeholder="Send a message!">
+            </div>
+            <button class="btn btn-primary m-2" type="submit">Send!</button>
+        </div>
+    </div>
+</form>

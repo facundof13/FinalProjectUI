@@ -1,0 +1,28 @@
+<form [formGroup]="form" *ngIf="form" (ngSubmit)="createRoom()">
+    <div class="row my-2" *ngIf="success || error">
+        <div class="col-12">
+            <span *ngIf="success" class="text-success">{{success}}</span>
+            <span *ngIf="error" class="text-danger">{{error}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="name">*Room Name</label>
+                <input name="name" type="text" formControlName="name" class="form-control" id="name">
+                <div class="text-danger hide my-1"
+                    [ngClass]="{'show': form.get('name').touched && !form.get('name').valid}">Please enter a name.</div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12 d-flex justify-content-end">
+            <div class="mx-2">
+                <button class="btn btn-secondary" type="button" (click)="dialogRef.close()">Cancel</button>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
